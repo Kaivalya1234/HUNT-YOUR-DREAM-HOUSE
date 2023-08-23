@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>login form</title>
+
+   <!-- custom css file link  -->
+   <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+      
+      :root{
+         --main-color:#DA2C32;
+         --light-color:black;
+         --light-bg:#eee;
+         --white:#fff;
+         --black:black;
+         --border:.1rem solid var(--light-color);
+         --box-shodow:0 .5rem 1rem rgba(0,0,0,0.3);
+      }
+      
+      *{
+         font-family: 'Poppins', sans-serif;
+         margin:0; padding:0;
+         box-sizing: border-box;
+         outline: none; border:none;
+         text-decoration: none;
+      }
+      
+      .container{
+         min-height: 100vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding:20px;
+         padding-bottom: 60px;
+      }
+      
+      .container .content{
+         text-align: center;
+      }
+      
+      .container .content h3{
+         font-size: 30px;
+         color:#333;
+      }
+      
+      .container .content h3 span{
+         background: crimson;
+         color:#fff;
+         border-radius: 5px;
+         padding:0 15px;
+      }
+      
+      .container .content h1{
+         font-size: 50px;
+         color:#333;
+      }
+      
+      .container .content h1 span{
+         color:crimson;
+      }
+      
+      .container .content p{
+         font-size: 25px;
+         margin-bottom: 20px;
+      }
+      
+      .container .content .btn{
+         display: inline-block;
+         padding:10px 30px;
+         font-size: 20px;
+         background: #333;
+         color:#fff;
+         margin:0 5px;
+         text-transform: capitalize;
+      }
+      
+      .container .content .btn:hover{
+         background: crimson;
+      }
+      
+      .form-container{
+         min-height: 100vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         padding:20px;
+         padding-bottom: 60px;
+         background: #eee;
+      }
+      
+      .form-container form{
+         padding:20px;
+         border-radius: 5px;
+         box-shadow: 0 5px 10px rgba(0,0,0,.1);
+         background: #fff;
+         text-align: center;
+         width: 500px;
+      }
+      
+      .form-container form h3{
+         font-size: 30px;
+         text-transform: uppercase;
+         margin-bottom: 10px;
+         color:#333;
+      }
+      
+      .form-container form input,
+      .form-container form select{
+         width: 100%;
+         padding:10px 15px;
+         font-size: 17px;
+         margin:8px 0;
+         background: #eee;
+         border-radius: 5px;
+      }
+      
+      .form-container form select option{
+         background: #fff;
+      }
+      
+      .form-container form .form-btn{
+         background: #fbd0d9;
+         color:crimson;
+         text-transform: capitalize;
+         font-size: 20px;
+         cursor: pointer;
+      }
+      
+      .form-container form .form-btn:hover{
+         background: crimson;
+         color:#fff;
+      }
+      
+      .form-container form p{
+         margin-top: 10px;
+         font-size: 20px;
+         color:#333;
+      }
+      
+      .form-container form p a{
+         color:crimson;
+      }
+      
+      .form-container form .error-msg{
+         margin:10px 0;
+         display: block;
+         background: crimson;
+         color:#fff;
+         border-radius: 5px;
+         font-size: 20px;
+         padding:10px;
+      }
+      .footer{
+         background-color: var(--black);
+      }
+      
+      /* taking more space*/
+      .footer .flex{
+         display: flex;
+         flex-wrap: wrap;
+         gap: 2rem;
+         justify-content: space-between;
+      }
+      
+      /* becoming small*/
+      .footer .flex .box a{
+         display: block;
+         padding: 1rem 0;
+         font-size: 1.8rem;
+      }
+      /* changing color*/
+      .footer .flex .box a span{
+         color: var(--white);
+      }
+      /* underline*/
+      .footer .flex .box a:hover span
+      {
+         text-decoration: underline;
+      }
+      /* symbols red*/
+      .footer .flex .box a i
+      {
+         color: var(--main-color);
+      }
+      
+      
+      /* last copyright*/
+      .footer .credit{
+         padding: 3rem 2rem;
+         text-align: center;
+         border-top: var(--border);
+         font-size: 2rem;
+         color: var(--white);
+         margin-top: 2rem;
+         /* padding-bottom: 10rem; */
+      }
+      
+      /* red for team web designers*/
+      .footer .credit span{
+         color: var(--main-color);
+      }
+      
+      #login
+      {
+         background-color: lightgray;
+      }
+      
+      /* to set in a screen correctly*/
+      *{
+         font-family: 'Montserrat', sans-serif;
+         margin: 0; padding: 0;
+         box-sizing: border-box;
+         outline: none; border: none;
+         text-decoration: none;
+      }
+      
+      *::selection{
+         background-color: var(--main-color);
+         color: var(--white);
+      }
+      
+      *::-webkit-scrollbar{
+         height: .5rem;
+         width: 1rem;
+      }
+      
+      *::-webkit-scrollbar-track{
+         background-color: transparent;
+      }
+      
+      *::-webkit-scrollbar-thumb{
+         background-color:red;
+         border-radius: 5rem;
+      }
+      
+      html{
+         font-size: 70%;
+      }
+      /* all listing */  /* class= .      id=# */
+      .heading{
+         text-align: center;
+         padding-bottom: 2.5rem;
+         font-size: 3rem;
+         color: var(--black);
+         text-transform: capitalize;
+      }
+      
+      body{
+         background-color:white;
+      }
+      /*heading position*/
+      section{
+         padding: 3rem 2rem;
+         max-width: 1000px;
+         margin: 0 auto;
+      }
+      
+      /*welcome back section*/
+      .btn,
+      .inline-btn{
+         margin-top: 1rem;
+         padding: 1rem 3rem;
+         background-color: var(--main-color);
+         color: var(--white);
+         cursor: pointer;
+         text-align: center;
+         font-size: 1.8rem;
+      }
+      
+      .btn:hover,
+      .inline-btn:hover{
+         background-color: var(--black);
+      }
+      
+      .btn{
+         display: block;
+         width: 100%;
+      }
+      
+      .inline-btn{
+         display: inline-block;
+      }
+      
+      /* all features*/
+      .header{
+         box-shadow: var(--box-shodow);
+      
+      }
+      /*navigation bar heading */ /* flex=container building for resposive websites"*/
+      .header .navbar.nav-1 .flex{
+         padding-top: 1rem;
+         padding-bottom: 1rem;
+      }
+      /* navigation bar featues*/
+      .header .navbar.nav-2 .flex{
+         padding-top: 0;
+         padding-bottom: 0;
+      }
+      /*color for nav1*/
+      .header .navbar.nav-1{
+         background-color: var(--black);
+      }
+      /*color for nav 2*/
+      .header .navbar.nav-2{
+         background-color: var(--white);
+      }
+      /* box for post-property*/
+      .header .navbar .flex{
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+      }
+      /*heading and logo*/
+      .header .navbar .flex .logo{
+         font-size: 2.5rem;
+         color: var(--main-color);
+      }
+      /* to grup the list items in a each single feature*/
+      .header .navbar .flex ul{
+         list-style: none;
+      }
+      /*all in line nav2*/
+      .header .navbar .flex ul li{
+         float: left;
+         position: relative;
+      }
+      /* nav 2 becoming too small*/
+      .header .navbar .flex ul li a{
+         display: inline-block;
+         padding: 1.2rem 2rem;
+         font-size: 1.8rem;
+         color: var(--black);
+         background-color: var(--white);
+      }
+      
+      /* hovering red*/
+      .header .navbar .flex ul li a:hover{
+         background-color: var(--main-color);
+         color: var(--white);
+      }
+      
+      /* all features mixing*/
+      .header .navbar .flex ul li ul{
+         position: absolute;
+         width: 17rem;
+         left: 0;
+      }
+      /* flat and shop at same place*/
+      .header .navbar .flex ul li ul li{
+         width: 100%;
+      }
+      
+      /* inside feartues displaying*/
+      .header .navbar .flex ul li ul li a{
+         display: none;
+      }
+      /*drop down box not comming*/
+      .header .navbar .flex ul li:hover ul li a{
+         display: block;
+      }
+      /*menu btn*/
+      #menu-btn{
+         font-size: 2.5rem;
+         color: var(--black);
+         display: none;
+      }
+      /*building background*/
+      .home{
+         background-image: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVhbCUyMGVzdGF0ZXxlbnwwfHwwfHw%3D&w=1000&q=80');
+      background-size: cover;
+         background-position: center;   
+      }
+      /*for center of the page*/
+      .home .center{
+         min-height: 85vh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+      }
+      /*for box*/
+      .home .center form{
+         background-color: var(--white);
+         padding: 2rem;
+         box-shadow: var(--box-shodow);
+         width: 50rem;
+      }
+      /*text*/
+      .home .center form h3{
+         padding-bottom: 1rem;
+         text-align: center;
+         color: var(--black);
+         text-transform: capitalize;
+         font-size: 2.5rem;
+      }
+      /*for side by side*/
+      .home .center form .flex{
+         display: flex;
+         gap:1rem;
+         flex-wrap: wrap;
+      }
+      /*beautify*/
+      .home .center form .box{
+         flex: 1 1 20rem;
+      }
+      /*input*/
+      .home .center form .box .input{
+         width: 100%;
+         border: var(--border);
+         padding: 1.4rem;
+         color: var(--black);
+         font-size: 1.8rem;
+         margin: 1rem 0;
+      }
+      /*side headings*/
+      .home .center form .box p{
+         color: var(--light-color);
+         font-size: 1.7rem;
+         padding-top: 1rem;
+      }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <header class="header">
+
+      <nav class="navbar nav-1">
+         <section class="flex">
+            <a href="home.html" class="logo"><i class="fas fa-house"></i><b style="color:cyan">Hunt Ur Dream House</b></a>
+   
+            <ul>
+               <li><a href="post_property.html">post property<i class="fas fa-paper-plane"></i></a></li>
+            </ul>
+         </section>
+      </nav>
+   
+      <nav class="navbar nav-2">
+         <section class="flex">
+            <div id="menu-btn" class="fas fa-bars"></div>
+   
+            <div class="menu">
+               <ul>
+                  <li><a href="#">buy<i class="fas fa-angle-down"></i></a>
+                     <ul>
+                       <li><a href="#">Greater Community</a></li>
+                       <li><a href="#">flat</a></li>
+                       <li><a href="#">shop</a></li>
+                       <li><a href="#">individual</a></li>
+                       <li><a href="#">Duplex</a></li>
+                       <li><a href="#">ready to move</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="#">sell<i class="fas fa-angle-down"></i></a>
+                     <ul>
+                        <li><a href="#">post property</a></li>
+                        <li><a href="#">dashboard</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="#">rent<i class="fas fa-angle-down"></i></a>
+                     <ul>
+                       <li><a href="#">Greater Community</a></li>
+                       <li><a href="#">flat</a></li>
+                       <li><a href="#">shop</a></li>
+                       <li><a href="#">individual</a></li>
+                       <li><a href="#">Duplex</a></li>
+                       <li><a href="#">ready to move</a></li>
+                     </ul>
+                  </li>
+                  <li><a href="#">help<i class="fas fa-angle-down"></i></a>
+                     <ul>
+                        <li><a href="about.html">about us</a></i></li>
+                        <li><a href="contact.html">contact us</a></i></li>
+                        <li><a href="contact.html#faq">FAQ</a></i></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+   
+            <ul>
+               <li><a href="#">saved <i class="far fa-heart"></i></a></li>
+               <li><a href="#">account <i class="fas fa-angle-down"></i></a>
+                  <ul>
+                     <li><a href="login.html">login</a></li>
+                     <li><a href="register.html">register</a></li>
+                  </ul>
+               </li>
+            </ul>
+         </section>
+      </nav>
+   
+   </header>
+<div class="form-container">
+
+   <form action="listings.html">
+      <h3>login now</h3>
+      <input type="email" name="email" required placeholder="enter your email">
+      <input type="password" name="password" required placeholder="enter your password">
+      <input type="submit" name="submit" value="login now" class="form-btn">
+      <p>don't have an account? <a href="register.html">register now</a></p>
+   </form>
+
+</div>
+<footer class="footer">
+
+   <section class="flex">
+
+      <div class="box">
+         <a href="tel:8712169299"><i class="fas fa-phone"></i><span>8712169299</span></a>
+         <a href="tel:9949331144"><i class="fas fa-phone"></i><span>9949331144</span></a>
+         <a href="mailto:kaivalyakammella@gmail.com"><i class="fas fa-envelope"></i><span>kaivalyakammella@gmail.com</span></a>
+         <a href="#"><i class="fas fa-map-marker-alt"></i><span>Visakhapatnam, india - 530046</span></a>
+      </div>
+
+      <div class="box">
+         <a href="home.html"><span>home</span></a>
+         <a href="about.html"><span>about</span></a>
+         <a href="contact.html"><span>contact</span></a>
+         <a href="listings.html"><span>all listings</span></a>
+         <a href="#"><span>saved properties</span></a>
+      </div>
+
+      <div class="box">
+         <a href="#"><span>facebook</span><i class="fab fa-facebook-f"></i></a>
+         <a href="#"><span>twitter</span><i class="fab fa-twitter"></i></a>
+         <a href="#"><span>linkedin</span><i class="fab fa-linkedin"></i></a>
+         <a href="#"><span>instagram</span><i class="fab fa-instagram"></i></a>
+
+      </div>
+
+   </section>
+   <hr style="height:1px;border-width:20%;color: white;background-color:white">
+
+   <div class="credit">&copy; copyright @ 2023 by <span>Team-web designers</span> | all rights reserved!</div>
+
+</footer>
+
+</body>
+</html>
